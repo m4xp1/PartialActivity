@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Partial Activity</string>
+
+    <string name="use_blur">Use blur</string>
+    <string name="use_lock">Use lock</string>
+
+    <string name="second_activity">Second Activity</string>
+</resources>
