@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.FragmentActivity
 
-abstract class BasePartialActivity : PartialActivity {
+abstract class BasePartialScreen : PartialScreen {
 
     private lateinit var activity: FragmentActivity
 

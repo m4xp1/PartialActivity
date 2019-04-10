@@ -3,15 +3,15 @@ package one.xcorp.partial.lock
 import android.app.Activity.RESULT_OK
 import android.content.Intent
 import android.util.Log
-import one.xcorp.partial.BasePartialActivity
+import one.xcorp.partial.BasePartialScreen
 import one.xcorp.sample.SecondActivity
 
 /**
  * Demonstrates how to use delegation of method calls from main activity.
  */
-class LockedActivityImpl : LockedActivity, BasePartialActivity() {
+class LockableScreenImpl : LockableScreen, BasePartialScreen() {
 
-    override val lockedActivity = this
+    override val lockableScreen = this
 
     private var isLocked = true
 
@@ -20,7 +20,7 @@ class LockedActivityImpl : LockedActivity, BasePartialActivity() {
     override fun setLock(isLocked: Boolean) {
         if (isLocked) {
             this.isLocked = isLocked
-            Log.i("TEST_TAG", "LockedActivity: isLocked = $isLocked")
+            Log.i("TEST_TAG", "LockableScreen: isLocked = $isLocked")
         } else {
             val intent = Intent(getContext(), SecondActivity::class.java)
             startActivityForResult(intent, REQUEST_LOCK_ACTIVITY)
@@ -28,10 +28,10 @@ class LockedActivityImpl : LockedActivity, BasePartialActivity() {
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        Log.i("TEST_TAG", "LockedActivity: onActivityResult")
+        Log.i("TEST_TAG", "LockableScreen: onActivityResult")
         if (requestCode == REQUEST_LOCK_ACTIVITY && resultCode == RESULT_OK) {
             this.isLocked = false
-            Log.i("TEST_TAG", "LockedActivity: isLocked = $isLocked")
+            Log.i("TEST_TAG", "LockableScreen: isLocked = $isLocked")
         }
     }
 

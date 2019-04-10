@@ -5,17 +5,16 @@ import android.os.Bundle
 import android.support.v4.app.FragmentActivity
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
-import kotlinx.android.synthetic.main.activity_main.blurButton
-import kotlinx.android.synthetic.main.activity_main.lockButton
+import kotlinx.android.synthetic.main.activity_main.*
 import one.xcorp.partial.R
-import one.xcorp.partial.blur.BlurredActivity
-import one.xcorp.partial.blur.BlurredActivityImpl
-import one.xcorp.partial.lock.LockedActivity
-import one.xcorp.partial.lock.LockedActivityImpl
+import one.xcorp.partial.blur.BlurredScreen
+import one.xcorp.partial.blur.BlurredScreenImpl
+import one.xcorp.partial.lock.LockableScreen
+import one.xcorp.partial.lock.LockableScreenImpl
 
 class MainActivity : AppCompatActivity(),
-        BlurredActivity by BlurredActivityImpl(), // TODO first step
-        LockedActivity by LockedActivityImpl() {
+        BlurredScreen by BlurredScreenImpl(), // TODO first step
+        LockableScreen by LockableScreenImpl() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -42,8 +41,8 @@ class MainActivity : AppCompatActivity(),
 
     // TODO fourth step
     override fun attachToActivity(activity: FragmentActivity) {
-        blurredActivity.attachToActivity(activity)
-        lockedActivity.attachToActivity(activity)
+        blurredScreen.attachToActivity(activity)
+        lockableScreen.attachToActivity(activity)
     }
 
     override fun onResume() {
@@ -55,6 +54,6 @@ class MainActivity : AppCompatActivity(),
         super.onActivityResult(requestCode, resultCode, data)
         // You must delegate all annotated methods
         Log.i("TEST_TAG", "MainActivity: onActivityResult")
-        lockedActivity.onActivityResult(requestCode, resultCode, data)
+        lockableScreen.onActivityResult(requestCode, resultCode, data)
     }
 }

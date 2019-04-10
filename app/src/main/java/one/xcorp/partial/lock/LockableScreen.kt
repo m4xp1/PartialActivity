@@ -2,11 +2,11 @@ package one.xcorp.partial.lock
 
 import android.content.Intent
 import one.xcorp.partial.Delegated
-import one.xcorp.partial.PartialActivity
+import one.xcorp.partial.PartialScreen
 
-interface LockedActivity : PartialActivity {
+interface LockableScreen : PartialScreen {
 
-    val lockedActivity: LockedActivity
+    val lockableScreen: LockableScreen
 
     fun isLocked(): Boolean
 

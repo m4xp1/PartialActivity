@@ -4,7 +4,7 @@ import android.arch.lifecycle.LifecycleObserver
 import android.content.Context
 import android.support.v4.app.FragmentActivity
 
-interface PartialActivity : LifecycleObserver {
+interface PartialScreen : LifecycleObserver {
 
     fun getContext(): Context
 

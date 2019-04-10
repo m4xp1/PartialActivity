@@ -3,14 +3,14 @@ package one.xcorp.partial.blur
 import android.arch.lifecycle.Lifecycle
 import android.arch.lifecycle.OnLifecycleEvent
 import android.util.Log
-import one.xcorp.partial.BasePartialActivity
+import one.xcorp.partial.BasePartialScreen
 
 /**
  * Demonstrates how to use bind to the activity life cycle.
  */
-class BlurredActivityImpl : BlurredActivity, BasePartialActivity() {
+class BlurredScreenImpl : BlurredScreen, BasePartialScreen() {
 
-    override val blurredActivity = this
+    override val blurredScreen = this
 
     private var isBlurred = false
 
@@ -23,6 +23,6 @@ class BlurredActivityImpl : BlurredActivity, BasePartialActivity() {
 
     override fun setBlur(isBlurred: Boolean) {
         this.isBlurred = isBlurred
-        Log.i("TEST_TAG", "BlurredActivity: isBlurred = $isBlurred")
+        Log.i("TEST_TAG", "BlurredScreen: isBlurred = $isBlurred")
     }
 }
